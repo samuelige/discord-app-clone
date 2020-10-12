@@ -1,15 +1,25 @@
 import React from 'react';
-import { Counter } from './features/Counter';
+import { useSelector } from 'react-redux';
 import './App.css';
 import Sidebar from './components/sidebarComponents/Sidebar';
 import Chat from './components/chatComponents/Chat'
+import {selectUser} from './features/userSlice'
+import Login from './components/login component/Login';
+
+
 function App() {
+  const user = useSelector(selectUser);
   return (
     <div className="app">
-      {/* Sidebar */}
-      <Sidebar/>
-      {/* Chat */}
-      <Chat />
+      {
+        user ? (
+          <>
+            <Sidebar/>
+            <Chat />
+          </>
+        ) : (<Login/>)
+      }
+      
     </div>
   );
 }
