@@ -1,4 +1,5 @@
 import React from 'react'
+import { auth } from '../chatComponents/firebase'
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import EditLocationRoundedIcon from '@material-ui/icons/EditLocationRounded';
 import PeopleAltRoundedIcon from '@material-ui/icons/PeopleAltRounded';
@@ -29,6 +30,7 @@ function ChatHeader() {
 
             <SendRoundedIcon />
             <HelpRoundedIcon />
+            <h4 onClick={() => auth.signOut()} className="sign__out">Sign Out</h4>
         </div>
     )
 }
